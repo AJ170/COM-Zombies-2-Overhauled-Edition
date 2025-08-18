@@ -4,8 +4,8 @@
 
 ![Android](https://img.shields.io/badge/Platform-Android-green?logo=android&style=flat-square)
 ![Windows](https://img.shields.io/badge/Platform-Windows-blue?logo=windows&style=flat-square)
-![Release](https://img.shields.io/badge/Release-v1.3.1-orange?style=flat-square)
-![Next Release](https://img.shields.io/badge/Next--Up-v1.3.2-yellow?style=flat-square)
+![Release](https://img.shields.io/badge/Release-v1.3.3-orange?style=flat-square)
+![Next Release](https://img.shields.io/badge/Next--Up-v1.4-yellow?style=flat-square)
 
 ## What is this mod about?
 
@@ -281,18 +281,16 @@ All notable changes to **COM Zombies 2** will be documented here.
 ### Android
 
 1. Download the latest APK from the [Releases](https://github.com/ShadowOsmium/COM-Zombies-2/releases/latest) page — file:   
-   `COMZ2.apk`
+   `Android.COM-Zombies-2.apk`
 2. Allow installation from unknown sources on your Android device if needed.
 3. Open the APK to install the game.
-4. Launch and enjoy hunting zombies on the go!
 
 ### PC (Windows)
 
 1. Download the latest PC Release from the [Releases](https://github.com/ShadowOsmium/COM-Zombies-2/releases/latest) page — file:   
-   `COMZ2.zip`
+   `PC.CoM.Zombies.2.7z`
 2. Extract the ZIP file to your preferred folder.
 3. Run the executable inside to start the game.
-4. Have fun playing on your PC!
 
 ---
 
@@ -308,5 +306,7 @@ All notable changes to **COM Zombies 2** will be documented here.
 - **Shoot:** Left Mouse Button  
 - **Pause/Menu:** Esc key  
 - **Ability:** Num 1
+- **Skip Cutscene** Space
+- **Buy Ammo** R
 
 ---
