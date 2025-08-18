@@ -306,7 +306,7 @@ All notable changes to **COM Zombies 2** will be documented here.
 - **Shoot:** Left Mouse Button  
 - **Pause/Menu:** Esc key  
 - **Ability:** Num 1
-- **Skip Cutscene** Space
-- **Buy Ammo** R
+- **Skip Cutscene:** Space
+- **Buy Ammo:** R
 
 ---
