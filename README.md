@@ -280,14 +280,14 @@ All notable changes to **COM Zombies 2** will be documented here.
 
 ### Android
 
-1. Download the latest APK from the [Releases](https://github.com/ShadowOsmium/COM-Zombies-2/releases/latest) page — file:   
+1. Download the latest APK from the [Releases](https://github.com/ShadowOsmium/COM-Zombies-2-Overhauled-Edition/releases/latest) page — file:   
    `Android.COM-Zombies-2.apk`
 2. Allow installation from unknown sources on your Android device if needed.
 3. Open the APK to install the game.
 
 ### PC (Windows)
 
-1. Download the latest PC Release from the [Releases](https://github.com/ShadowOsmium/COM-Zombies-2/releases/latest) page — file:   
+1. Download the latest PC Release from the [Releases](https://github.com/ShadowOsmium/COM-Zombies-2-Overhauled-Edition/releases/latest) page — file:   
    `PC.CoM.Zombies.2.7z`
 2. Extract the ZIP file to your preferred folder.
 3. Run the executable inside to start the game.
