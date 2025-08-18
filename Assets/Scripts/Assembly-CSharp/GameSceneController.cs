@@ -370,14 +370,12 @@ public class GameSceneController : MonoBehaviour
 
 
     public bool IsSkipCg
-	{
-		get
-		{
-			return is_skip_cg;
-		}
-	}
+    {
+        get { return is_skip_cg; }
+        set { is_skip_cg = value; }
+    }
 
-	public int GetCurEnemyIndex()
+    public int GetCurEnemyIndex()
 	{
 		return enenmy_index;
 	}
@@ -631,7 +629,7 @@ public class GameSceneController : MonoBehaviour
         }
         float now = Time.unscaledTime;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && GamePlayingState == PlayingState.Gaming)
         {
             if (!Instance.isPaused)
                 Instance.OnGamePause();

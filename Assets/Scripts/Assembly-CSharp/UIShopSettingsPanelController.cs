@@ -89,6 +89,7 @@ public class UIShopSettingsPanelController : UIShopPanelController
                 GameData.Instance.didResetSave = true;
                 GameData.Instance.Init();
                 GameData.Instance.blackname = false;
+                GameData.Instance.ClearUsedPromoCodes();
                 GameData.Instance.SaveData();
                 SceneManager.LoadScene("InitScene");
 

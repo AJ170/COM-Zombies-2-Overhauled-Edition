@@ -82,7 +82,7 @@ public class CleanerMissionController : MissionController
         }
 
         totalEnemies = 0;
-        float scaleFactor = Mathf.Clamp(0.2f + (GameSceneController.Instance.DayLevel / 300f), 0.5f, 0.6f);
+        float scaleFactor = Mathf.Clamp(0.2f + (GameSceneController.Instance.DayLevel / 300f), 0.3f, 0.4f);
 
         foreach (EnemyWaveInfo wave in currentWaveInfoList.wave_info_list)
         {

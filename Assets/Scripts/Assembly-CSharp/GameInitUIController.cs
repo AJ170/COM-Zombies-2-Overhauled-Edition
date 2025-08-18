@@ -56,7 +56,7 @@ public class GameInitUIController : MonoBehaviour
             GameData.Instance.Init();
 
             string localVersion = LoadLocalVersionFromResources();
-            GameData.Instance.game_version = localVersion ?? "1.3.3";
+            GameData.Instance.game_version = localVersion ?? "1.3.4";
             GameData.Instance.needsUpdate = false;
 
             GameData.Instance.SaveData();

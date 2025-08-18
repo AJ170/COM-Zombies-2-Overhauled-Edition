@@ -91,6 +91,7 @@ public class GameEnhancer : MonoBehaviour
 
     void Awake()
     {
+        GameData.Instance.day_level = 10;
         if (_instance != null && _instance != this)
         {
             Destroy(gameObject);

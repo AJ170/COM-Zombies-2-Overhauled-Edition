@@ -61,6 +61,8 @@ public class GameData : MonoBehaviour
 
     private bool hasAttemptedLoad = false;
 
+    private bool _triedLoadOnce = false;
+
     public bool justReceivedLotteryReward = false;
 
     public int lottery_count;
@@ -446,9 +448,10 @@ public class GameData : MonoBehaviour
             Debug.LogWarning("Suspicious save detected.");
             isResetting = true;
             MenuAudioController.DestroyGameMenuAudio();
-            Instance.didResetSave = true;
-            Instance.Init();
-            Instance.blackname = false;
+            didResetSave = true;
+            Init();
+            ClearUsedPromoCodes();
+            blackname = false;
 
             isResetting = false;  // Reset here before reload
 
@@ -676,6 +679,13 @@ public class GameData : MonoBehaviour
 
     public bool LoadData()
     {
+        if (_triedLoadOnce)
+        {
+            Debug.Log("[GameData] LoadData already attempted once — skipping.");
+            return isLoaded;
+        }
+        _triedLoadOnce = true;
+
         if (isLoaded)
         {
             Debug.Log("[GameData] LoadData called but data is already loaded — skipping.");

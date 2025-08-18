@@ -109,6 +109,9 @@ public class GameTUIEvent : MonoBehaviour
         {
             control.gameObject.SetActive(false);
             GameSceneController.Instance.StopCameraRoam();
+            if (BossRoamEvent.Instance != null)
+                BossRoamEvent.Instance.SkipBossCutscene();
+
         }
     }
 

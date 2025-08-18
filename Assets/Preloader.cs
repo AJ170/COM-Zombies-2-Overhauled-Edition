@@ -59,7 +59,8 @@ public class Preloader : MonoBehaviour
             sceneName == "Depot" ||
             sceneName == "Junkyard" ||
             sceneName == "Street" ||
-            sceneName == "Church";
+            sceneName == "Church" ||
+            sceneName == "GameTutorial";
     }
 
     private IEnumerator PreloadPrefabs()
