@@ -124,7 +124,6 @@ public class GameEnhancer : MonoBehaviour
     {
         if (GameData.Instance != null)
         {
-            GameData.Instance.day_level = 30;
             lastCash = GameData.Instance.total_cash.GetIntVal();
             lastCrystal = GameData.Instance.total_crystal.GetIntVal();
             lastVoucher = GameData.Instance.total_voucher.GetIntVal();
