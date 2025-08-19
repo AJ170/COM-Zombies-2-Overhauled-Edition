@@ -203,13 +203,13 @@ public class UIShopWeaponPanelController : UIShopPanelController
             return;
 
         int priceVal = currentWeapon.config.price.GetIntVal();
-        if (priceVal <= 0)
+        /*if (priceVal <= 0)
         {
             Debug.LogWarning("AntiCheat: Negative price detected for weapon: " + currentWeapon.weapon_name);
             GameData.Instance.blackname = true;
             GameData.Instance.SaveData();
             return;
-        }
+        }*/
 
         if (((TUIButtonClick)control).m_NormalLabelObj.GetComponent<TUILabel>().Text == "Unlock")
         {
@@ -301,13 +301,13 @@ public class UIShopWeaponPanelController : UIShopPanelController
 		if (eventType == 3)
 		{
             int priceVal = currentWeapon.config.price.GetIntVal();
-            if (priceVal <= 0)
+            /*if (priceVal <= 0)
             {
                 Debug.LogWarning("AntiCheat: Negative price detected for weapon: " + currentWeapon.weapon_name);
                 GameData.Instance.blackname = true;
                 GameData.Instance.SaveData();
                 return;
-            }
+            }*/
 
             UISceneController.Instance.SceneAudio.PlayAudio("UI_click");
 			if (AreaOwned.BuyAmmo())
@@ -333,13 +333,13 @@ public class UIShopWeaponPanelController : UIShopPanelController
         if (eventType != 3) return;
 
         int priceVal = currentWeapon.config.price.GetIntVal();
-        if (priceVal <= 0)
+        /*if (priceVal <= 0)
         {
             Debug.LogWarning("AntiCheat: Negative price detected for weapon: " + currentWeapon.weapon_name);
             GameData.Instance.blackname = true;
             GameData.Instance.SaveData();
             return;
-        }
+        }*/
 
         UISceneController.Instance.SceneAudio.PlayAudio("UI_click");
         upgradePropertyIdx = int.Parse(control.transform.parent.name.Substring("Prop".Length)) - 1;

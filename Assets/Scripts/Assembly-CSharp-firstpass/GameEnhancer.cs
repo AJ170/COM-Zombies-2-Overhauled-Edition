@@ -91,7 +91,6 @@ public class GameEnhancer : MonoBehaviour
 
     void Awake()
     {
-        GameData.Instance.day_level = 10;
         if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
@@ -125,6 +124,7 @@ public class GameEnhancer : MonoBehaviour
     {
         if (GameData.Instance != null)
         {
+            GameData.Instance.day_level = 30;
             lastCash = GameData.Instance.total_cash.GetIntVal();
             lastCrystal = GameData.Instance.total_crystal.GetIntVal();
             lastVoucher = GameData.Instance.total_voucher.GetIntVal();

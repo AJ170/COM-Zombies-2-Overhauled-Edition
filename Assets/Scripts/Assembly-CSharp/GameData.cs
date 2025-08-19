@@ -645,7 +645,7 @@ public class GameData : MonoBehaviour
             }
             configure.AddValueArray2("Save", "ConfigVersion", arrayList8, "", "");
             configure.AddValueSingle("Save", "ConfigVersionCount", arrayList8.Count.ToString(), "", "");
-
+             
             // === IAP FAILED INFO ===
             /*configure.AddValueSingle("Save", "IapFailedCount", Iap_failed_info.Count.ToString(), "", "");
 
