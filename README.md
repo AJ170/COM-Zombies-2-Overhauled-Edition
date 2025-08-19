@@ -4,8 +4,8 @@
 
 ![Android](https://img.shields.io/badge/Platform-Android-green?logo=android&style=flat-square)
 ![Windows](https://img.shields.io/badge/Platform-Windows-blue?logo=windows&style=flat-square)
-![Release](https://img.shields.io/badge/Release-v1.3.3-orange?style=flat-square)
-![Next Release](https://img.shields.io/badge/Next--Up-v1.4-yellow?style=flat-square)
+![Release](https://img.shields.io/badge/Release-v1.4.1-orange?style=flat-square)
+![Next Release](https://img.shields.io/badge/Next--Up-v1.5-yellow?style=flat-square)
 
 ## What is this mod about?
 
@@ -37,14 +37,14 @@ All notable changes to **COM Zombies 2** will be documented here.
 ---
 
 ## Table of Contents  
-- [1.3.3 – Latest](#133--latest)  
+- [1.4.1 – Latest](#141--latest)  
 - [1.2](#12)  
 - [1.1](#11)  
 - [1.0](#10)  
 
 ---
 
-## [1.3.3] – Latest  
+## [1.4.1] – Latest  
 
 ### PC  
 - Automatic cursor lock.  
