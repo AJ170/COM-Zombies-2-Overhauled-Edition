@@ -9,8 +9,13 @@ public class Utils
 
     static Utils()
     {
+#if UNITY_PSP2 && !UNITY_EDITOR
+        m_SavePath = "ux0:/data/comZombies2Modded/"
+        m_DataPath = "ux0:/data/comZombies2Modded/"
+#else
         m_SavePath = Application.persistentDataPath;
         m_DataPath = Application.dataPath;
+
         if (m_SavePath[m_SavePath.Length - 1] != '/')
         {
             m_SavePath += "/";
@@ -19,6 +24,8 @@ public class Utils
         {
             m_DataPath += "/";
         }
+#endif
+
     }
 
     public static string SavePath()

@@ -15,20 +15,20 @@ public class GameInitUIController : MonoBehaviour
         public string tag_name;
     }
 
-    public VideoPlayer videoPlayer;
-    public RawImage videoImage;
-    public RenderTexture renderTexture;
+   // public VideoPlayer videoPlayer;
+    //public RawImage videoImage;
+    //public RenderTexture renderTexture;
     public string defaultNextScene = "GameCover";
 
-    public VideoClip promotionClip;
-    public VideoClip introClip;
+   // public VideoClip promotionClip;
+    //public VideoClip introClip;
 
-    private bool videoSkippedOrEnded = false;
-    private bool videoPausedDueToFocusLoss = false;
+  //  private bool videoSkippedOrEnded = false;
+   // private bool videoPausedDueToFocusLoss = false;
 
-    private int currentVideoIndex = 0; // 0 = promotion, 1 = intro
+   // private int currentVideoIndex = 0; // 0 = promotion, 1 = intro
 
-    private Coroutine checkVideoCoroutine;
+   // private Coroutine checkVideoCoroutine;
     private Coroutine forceSkipCoroutine;
     public TesterSaveManager testerSaveManager;
 
@@ -122,7 +122,7 @@ public class GameInitUIController : MonoBehaviour
 
         // 4. Continue initialization (ads, video, etc.)
         OpenClikPlugin.Initialize("A36F6C65-C1E3-47D4-AD07-AA8A6C90132C");
-
+/*
 #if UNITY_ANDROID && !UNITY_EDITOR
     yield return PlayAndroidVideosSequentially();
 #else
@@ -142,7 +142,7 @@ public class GameInitUIController : MonoBehaviour
 
         videoPlayer.SetTargetAudioSource(0, audioSource);
         yield return PlayVideoClip(promotionClip);
-#endif
+#endif*/
     }
 
     private string LoadLocalVersionFromResources()
@@ -217,7 +217,7 @@ private IEnumerator PlayAndroidVideosSequentially()
 #endif
 
 
-    private IEnumerator PlayVideoClip(VideoClip clip)
+  /*  private IEnumerator PlayVideoClip(VideoClip clip)
     {
         videoSkippedOrEnded = false;
 
@@ -244,27 +244,22 @@ private IEnumerator PlayAndroidVideosSequentially()
             StopCoroutine(forceSkipCoroutine);
         float timeout = (float)(clip.length > 0 ? clip.length : 65f);
         forceSkipCoroutine = StartCoroutine(ForceSkipAfterTimeout(timeout));
-    }
+    }*/
 
     private void Update()
     {
-        if (videoSkippedOrEnded)
-            return;
+      //  if (videoSkippedOrEnded)
+        //    return;
 
-#if UNITY_EDITOR || UNITY_STANDALONE
+
         if (Input.GetMouseButtonDown(0))
         {
-            SkipVideo("Mouse click (PC)");
+            // SkipVideo("Mouse click (PC)");
+            LoadNextScene();
         }
-#elif UNITY_IOS || UNITY_ANDROID
-        if (Input.touchCount > 0)
-        {
-            SkipVideo("Touch input (Mobile)");
-        }
-#endif
     }
 
-    private void OnVideoFinished(VideoPlayer vp)
+   /* private void OnVideoFinished(VideoPlayer vp)
     {
         if (videoSkippedOrEnded)
             return;
@@ -299,8 +294,8 @@ private IEnumerator PlayAndroidVideosSequentially()
             yield return null;
         }
     }
-
-    private IEnumerator ForceSkipAfterTimeout(float timeout)
+    */
+  /*  private IEnumerator ForceSkipAfterTimeout(float timeout)
     {
         float watchedTime = 0f;
 
@@ -346,7 +341,7 @@ private IEnumerator PlayAndroidVideosSequentially()
         }
 
         LoadNextScene();
-    }
+    }*/
     private void LoadNextScene()
     {
         PushNotification.ReSetNotifications();
@@ -382,7 +377,7 @@ private IEnumerator PlayAndroidVideosSequentially()
         }
     }
 
-    private void OnApplicationFocus(bool hasFocus)
+   /* private void OnApplicationFocus(bool hasFocus)
     {
         if (videoPlayer == null)
             return;
@@ -406,7 +401,7 @@ private IEnumerator PlayAndroidVideosSequentially()
             }
         }
     }
-
+    */
     private bool VersionsMatch(string local, string remote)
     {
         return local.Trim().ToLower() == remote.Trim().ToLower();

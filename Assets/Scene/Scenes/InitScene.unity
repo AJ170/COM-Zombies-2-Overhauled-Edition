@@ -261,8 +261,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.33333334
-    height: 0.5327414
+    width: 1
+    height: 1.0022676
   near clip plane: -128
   far clip plane: 128
   field of view: 60
@@ -516,8 +516,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 640
-    height: 480
+    width: 392
+    height: 221
 --- !u!1 &5316492
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,12 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a63086921196f4790cb84cb873abbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 376602799}
-  videoImage: {fileID: 1109261861}
-  renderTexture: {fileID: 8400000, guid: defd36ae418012548978f506fd7174f6, type: 2}
   defaultNextScene: GameCover
-  promotionClip: {fileID: 32900000, guid: a3c11747452e3ed44875f309787cb675, type: 3}
-  introClip: {fileID: 32900000, guid: 31a1ca2a593a845409a10216c0e650d8, type: 3}
   testerSaveManager: {fileID: 2111685270}
 --- !u!328 &376602799
 VideoPlayer:
@@ -622,7 +617,7 @@ VideoPlayer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376602797}
-  m_Enabled: 1
+  m_Enabled: 0
   m_VideoClip: {fileID: 32900000, guid: a3c11747452e3ed44875f309787cb675, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
