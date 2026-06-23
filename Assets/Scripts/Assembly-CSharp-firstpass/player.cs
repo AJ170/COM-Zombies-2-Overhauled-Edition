@@ -27,7 +27,14 @@ public class player : MonoBehaviour
 		KeyCode.D
 	};
 
-	public AnimationClip animations_Idle;
+    public string moveAxisX = "Left Joystick Horizontal";           
+    public string moveAxisY = "Left Joystick Vertical";             
+    public string lookAxisX = "Right Joystick Horizontal";  
+    public string lookAxisY = "RightJoystick Vertical";   
+    public float stickDeadzone = 0.2f;                
+    public bool invertLookY = false;               
+
+    public AnimationClip animations_Idle;
 
 	public AnimationClip[] animations_Run;
 
@@ -91,7 +98,65 @@ public class player : MonoBehaviour
 			base.GetComponent<Animation>().Stop(animations_Attack[0].name);
 			base.GetComponent<Animation>().CrossFade(animations_Attack[0].name);
 		}
-		Vector2 to = new Vector2(0f, 0f);
+#if UNITY_PSP2 && !UNITY_EDITOR
+        // ---------------- Movement: left analog stick (was WASD) ----------------
+Vector2 stick = new Vector2(Input.GetAxis(moveAxisX), Input.GetAxis(moveAxisY));
+if (stick.magnitude < stickDeadzone)
+    stick = Vector2.zero;
+
+if (stick != Vector2.zero)
+{
+    Vector2 fwd   = new Vector2(base.transform.forward.x, base.transform.forward.z);
+    Vector2 right = new Vector2(base.transform.forward.z, 0f - base.transform.forward.x);
+    Vector2 to = (fwd * stick.y + right * stick.x) * runSpeed;
+
+    // keep the original 4 directional run animations, picked by the dominant stick direction
+    if (Mathf.Abs(stick.y) >= Mathf.Abs(stick.x))
+        base.GetComponent<Animation>().CrossFade(animations_Run[stick.y > 0f ? 0 : 1].name);
+    else
+        base.GetComponent<Animation>().CrossFade(animations_Run[stick.x > 0f ? 3 : 2].name);
+
+    moveDirectionN = to.normalized;
+
+    if (thirdPersonView)
+    {
+        Vector2 from = new Vector2(base.transform.forward.x, base.transform.forward.z);
+        from = Vector2.Lerp(from, to, 0.6f);
+        base.transform.forward = new Vector3(from.x, base.transform.forward.y, from.y);
+    }
+    base.transform.position += new Vector3(to.x, 0f, to.y) * runSpeed;
+}
+else
+{
+    base.GetComponent<Animation>().CrossFade(animations_Idle.name);
+}
+
+// ---------------- Camera: right analog stick (was mouse) ----------------
+if (cmr != null)
+{
+    Vector2 look = new Vector2(Input.GetAxis(lookAxisX), Input.GetAxis(lookAxisY));
+    if (look.magnitude < stickDeadzone)
+        look = Vector2.zero;
+    if (invertLookY)
+        look.y = 0f - look.y;
+
+    Vector3 eulerAngles = cmr.transform.eulerAngles;
+    // stick is a HELD value, so multiply by Time.deltaTime for a steady turn rate
+    eulerAngles += new Vector3((0f - look.y) * mouseMoveSensitivity * Time.deltaTime,
+                                look.x        * mouseMoveSensitivity * Time.deltaTime, 0f);
+    if (eulerAngles.x < 0f)  eulerAngles.x = 0f;
+    if (eulerAngles.x > 80f) eulerAngles.x = 80f;
+    cmr.transform.eulerAngles = eulerAngles;
+    cmr.transform.position = cameraAimTrs.position - cmr.transform.forward * cmrToPlayerDis;
+    if (!thirdPersonView)
+    {
+        Vector3 forward = cameraAimTrs.position - cmr.transform.position;
+        forward.y = 0f;
+        base.transform.forward = forward;
+    }
+}
+#else
+        Vector2 to = new Vector2(0f, 0f);
 		if (Input.GetKey(keys_Move[0]))
 		{
 			to += new Vector2(base.transform.forward.x, base.transform.forward.z) * runSpeed;
@@ -153,5 +218,6 @@ public class player : MonoBehaviour
 				base.transform.forward = forward;
 			}
 		}
-	}
+#endif
+    }
 }

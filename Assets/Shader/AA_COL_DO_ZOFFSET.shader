@@ -48,7 +48,7 @@ Shader "Triniti/Particle/AA_COL_DO_ZOFFSET" {
             return o;
         }
 
-        float4 frag(v2f i) : SV_TARGET {
+        float4 frag(v2f i) : COLOR {
             return ((tex2D(_MainTex, i.texcoord0) * _Color) * 2.0);
         }
         

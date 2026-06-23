@@ -31,6 +31,7 @@ public class GameInitUIController : MonoBehaviour
    // private Coroutine checkVideoCoroutine;
     private Coroutine forceSkipCoroutine;
     public TesterSaveManager testerSaveManager;
+    public GUISkin m_Skin;
 
     private void Awake()
     {
@@ -217,34 +218,45 @@ private IEnumerator PlayAndroidVideosSequentially()
 #endif
 
 
-  /*  private IEnumerator PlayVideoClip(VideoClip clip)
+    /*  private IEnumerator PlayVideoClip(VideoClip clip)
+      {
+          videoSkippedOrEnded = false;
+
+          videoPlayer.Stop();
+          videoPlayer.clip = clip;
+          videoPlayer.Prepare();
+
+          Debug.Log("Preparing video: " + clip.name);
+
+          while (!videoPlayer.isPrepared)
+              yield return null;
+
+          Debug.Log("Video is prepared. Playing: " + clip.name);
+          videoPlayer.Play();
+
+          videoPlayer.loopPointReached -= OnVideoFinished;
+          videoPlayer.loopPointReached += OnVideoFinished;
+
+          if (checkVideoCoroutine != null)
+              StopCoroutine(checkVideoCoroutine);
+          checkVideoCoroutine = StartCoroutine(CheckIfVideoDone());
+
+          if (forceSkipCoroutine != null)
+              StopCoroutine(forceSkipCoroutine);
+          float timeout = (float)(clip.length > 0 ? clip.length : 65f);
+          forceSkipCoroutine = StartCoroutine(ForceSkipAfterTimeout(timeout));
+      }*/
+
+    void OnGUI()
     {
-        videoSkippedOrEnded = false;
-
-        videoPlayer.Stop();
-        videoPlayer.clip = clip;
-        videoPlayer.Prepare();
-
-        Debug.Log("Preparing video: " + clip.name);
-
-        while (!videoPlayer.isPrepared)
-            yield return null;
-
-        Debug.Log("Video is prepared. Playing: " + clip.name);
-        videoPlayer.Play();
-
-        videoPlayer.loopPointReached -= OnVideoFinished;
-        videoPlayer.loopPointReached += OnVideoFinished;
-
-        if (checkVideoCoroutine != null)
-            StopCoroutine(checkVideoCoroutine);
-        checkVideoCoroutine = StartCoroutine(CheckIfVideoDone());
-
-        if (forceSkipCoroutine != null)
-            StopCoroutine(forceSkipCoroutine);
-        float timeout = (float)(clip.length > 0 ? clip.length : 65f);
-        forceSkipCoroutine = StartCoroutine(ForceSkipAfterTimeout(timeout));
-    }*/
+        GUI.skin = m_Skin;
+        GUILayout.BeginArea(new Rect(10, 10, 100, Screen.height));
+        if (GUILayout.Button("Skip"))
+        {
+            LoadNextScene();
+        }
+        GUILayout.EndArea();
+    }
 
     private void Update()
     {
@@ -252,11 +264,11 @@ private IEnumerator PlayAndroidVideosSequentially()
         //    return;
 
 
-        if (Input.GetMouseButtonDown(0))
+       /* if (Input.GetMouseButtonDown(0))
         {
             // SkipVideo("Mouse click (PC)");
             LoadNextScene();
-        }
+        }*/
     }
 
    /* private void OnVideoFinished(VideoPlayer vp)
