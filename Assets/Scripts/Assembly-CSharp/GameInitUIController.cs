@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using CoMZ2;
 using System;
 using UnityEngine.Networking;
+using System.IO;
 
 public class GameInitUIController : MonoBehaviour
 {
@@ -33,11 +34,15 @@ public class GameInitUIController : MonoBehaviour
     public TesterSaveManager testerSaveManager;
     public GUISkin m_Skin;
 
-    private void Awake()
-    {
+
+
+private void Awake()
+{
+    
         GameConfig.CheckGameConfig();
         GameData.CheckGameData();
     }
+
 
     private string remoteVersion; // To store the fetched remote version
 
@@ -122,7 +127,7 @@ public class GameInitUIController : MonoBehaviour
         }
 
         // 4. Continue initialization (ads, video, etc.)
-        OpenClikPlugin.Initialize("A36F6C65-C1E3-47D4-AD07-AA8A6C90132C");
+        //OpenClikPlugin.Initialize("A36F6C65-C1E3-47D4-AD07-AA8A6C90132C");
 /*
 #if UNITY_ANDROID && !UNITY_EDITOR
     yield return PlayAndroidVideosSequentially();
@@ -171,6 +176,7 @@ public class GameInitUIController : MonoBehaviour
             if (webRequest.isNetworkError || webRequest.isHttpError)
             {
                 Debug.LogError("Error fetching remote version: " + webRequest.error);
+                remoteVersion = GameVersion.GetVersion();
             }
             else
             {

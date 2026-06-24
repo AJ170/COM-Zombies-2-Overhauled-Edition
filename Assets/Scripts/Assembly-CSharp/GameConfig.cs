@@ -1913,6 +1913,11 @@ public class GameConfig : MonoBehaviour
             else
             {
                 content = Utils.LoadResourcesFileForText("Config/" + file);
+                if (string.IsNullOrEmpty(content))
+                {
+                    Debug.LogError("[Config] MISSING config '" + file + "' — not in cache or Resources/Config/" + file);
+                    content = "<root/>";   // benign, parseable; the LoadXyzConfig foreach loops over nothing
+                }
                 OutputCfgFile(file, content);
                 Config_Version_Set[file] = "2.1.2";
                 Remote_Config_Version_Set[file] = "2.1.2";

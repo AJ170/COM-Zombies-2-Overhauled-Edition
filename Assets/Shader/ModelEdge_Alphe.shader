@@ -63,7 +63,7 @@ Shader "Triniti/Model/ModelEdge_Alphe" {
                 v.texcoord1 = pow(clamp((((coord.x * coord.x) + (coord.y * coord.y)) - ((coord.z * coord.z) * 0.5)), 0.0, 1.0), _Pow);
             }
 
-			void frag (v2f i, out half4 fragColor : SV_Target)
+			void frag (v2f i, out half4 fragColor : COLOR)
 			{
 			    fragColor = lerp(tex2D(_MainTex, i.texcoord2) * _Color, _AtmoColor, half4(i.texcoord3, i.texcoord3));
 			}

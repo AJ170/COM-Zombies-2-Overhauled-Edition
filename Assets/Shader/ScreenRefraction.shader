@@ -45,7 +45,7 @@ Shader "Triniti/Particle/ScreenRefraction" {
             sampler2D _NoiseTex;
             sampler2D _ScreenImage;
             
-            float4 frag (v2f i) : SV_Target {
+            float4 frag (v2f i) : COLOR {
 				float4 coord = float4((((i.texcoord.xy / i.texcoord.w) * 0.5) + 0.5), i.texcoord.zw);
 				coord.y = (1.0 - coord.y);
 				float4 normal = tex2D(_NoiseTex, i.texcoord1);

@@ -533,7 +533,7 @@ PlayerSettings:
   psp2SaveDataQuota: 10240
   psp2ParentalLevel: 1
   psp2ShortTitle: COMZ2
-  psp2ContentID: IV0000-COMZ20420_00-0123456789ABCDEF
+  psp2ContentID: IV0000-COMZ20420_00-0123456789COMZCO
   psp2Category: 0
   psp2MasterVersion: 01.00
   psp2AppVersion: 01.00
@@ -567,6 +567,7 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
+    PSP2: 0
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0

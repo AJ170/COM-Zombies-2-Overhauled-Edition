@@ -438,7 +438,9 @@ private void OnAutoMatchSelectButton(TUIControl control, int eventType, float wp
 
 	private string Encipher(string data_encipher)
 	{
-		int num = 30;
+        if (string.IsNullOrEmpty(data_encipher))
+            return string.Empty;
+        int num = 30;
 		char[] array = data_encipher.ToCharArray();
 		char[] array2 = data_encipher.ToCharArray();
 		char[] array3 = new char[2] { '\0', '\0' };

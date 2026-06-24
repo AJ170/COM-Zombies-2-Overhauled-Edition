@@ -2264,6 +2264,8 @@ public class GameData : MonoBehaviour
 
     public static string Encipher(string data)
     {
+        if (string.IsNullOrEmpty(data))
+            return string.Empty;
         byte[] key = new byte[] { 17, 53, 29, 101 };
         char[] chars = data.ToCharArray();
         for (int i = 0; i < chars.Length; i++)

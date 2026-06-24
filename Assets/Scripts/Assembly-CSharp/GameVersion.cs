@@ -174,6 +174,8 @@ public class GameVersion : MonoBehaviour
 
     private string Encipher(string data)
     {
+        if (string.IsNullOrEmpty(data))
+            return string.Empty;
         int xorValue = 30;
         char[] chars = data.ToCharArray();
         char[] result = new char[chars.Length];
