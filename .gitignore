@@ -86,3 +86,4 @@ Assets/Plugins/x86_64.meta
 Assets/Plugins/x86_64/discord-rpc.dll
 Assets/Plugins/x86_64/discord-rpc.dll.meta
 Assets/Plugins.meta
+*.vpk
