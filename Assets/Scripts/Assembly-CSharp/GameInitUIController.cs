@@ -82,7 +82,7 @@ private void Awake()
             {
                 Debug.LogWarning("Version mismatch detected. Forcing update.");
 
-                GameData.Instance.needsUpdate = true;
+                GameData.Instance.needsUpdate = false;
                 GameData.Instance.game_version = remoteVersion;
                 GameData.Instance.SaveData();
 
@@ -253,15 +253,9 @@ private IEnumerator PlayAndroidVideosSequentially()
           forceSkipCoroutine = StartCoroutine(ForceSkipAfterTimeout(timeout));
       }*/
 
-    void OnGUI()
+    public void BypassPrivateScene()
     {
-        GUI.skin = m_Skin;
-        GUILayout.BeginArea(new Rect(10, 10, 100, Screen.height));
-        if (GUILayout.Button("Skip"))
-        {
-            LoadNextScene();
-        }
-        GUILayout.EndArea();
+        LoadNextScene();
     }
 
     private void Update()

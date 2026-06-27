@@ -64,20 +64,20 @@ public class GameCoverUIController : MonoBehaviour
     {
         yield return null;
 
-        ShowMask(true);
+        //ShowMask(true);
 
-        GameVersion.Instance.CheckRemoteGameVersion(OnServerVersion, OnServerVersionError);
+        //GameVersion.Instance.CheckRemoteGameVersion(OnServerVersion, OnServerVersionError);
 
         yield return 1;
 
         if (GameDefine.IS_CONFIG_OUTPUT)
         {
-            GameVersion.Instance.OutputVersionCheckFile();
+            //GameVersion.Instance.OutputVersionCheckFile();
         }
 
         yield return 1;
 
-        OpenClikPlugin.Show(true);
+        //OpenClikPlugin.Show(true);
 
         if (TrinitiAdAndroidPlugin.Instance().CanChartboost())
         {
@@ -185,7 +185,7 @@ public class GameCoverUIController : MonoBehaviour
             return;
         }
 
-        GameData.Instance.needsUpdate = true;
+        GameData.Instance.needsUpdate = false;
         GameData.Instance.SaveData();
 
         ShowMask(false);
@@ -231,10 +231,10 @@ public class GameCoverUIController : MonoBehaviour
 
     private void OnServerVersionError()
     {
-        ShowMask(false);
+        //ShowMask(false);
         Debug.LogWarning("Failed to check game version. Blocking play until update is checked.");
 
-        GameData.Instance.needsUpdate = true;
+        GameData.Instance.needsUpdate = false;
         GameData.Instance.SaveData();
     }
 
