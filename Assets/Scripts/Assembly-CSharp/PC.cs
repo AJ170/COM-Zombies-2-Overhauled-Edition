@@ -57,7 +57,7 @@ public class PC : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start Button"))
         {
             if (isPaused)
             {
@@ -69,7 +69,7 @@ public class PC : MonoBehaviour
             }
         }
 
-        if (can_buy_ammo && Input.GetKeyDown(KeyCode.R))
+        if (can_buy_ammo && Input.GetKeyDown(KeyCode.R) || can_buy_ammo && Input.GetButtonDown("Square Button"))
         {
             GameSceneController.Instance.OnAddBulletButton();
         }

@@ -627,9 +627,20 @@ public class GameSceneController : MonoBehaviour
         {
             OnAddBulletButton();
         }
+        if (can_buy_ammo && Input.GetButtonDown("Square Button"))
+        {
+            OnAddBulletButton();
+        }
         float now = Time.unscaledTime;
 
         if (Input.GetKeyDown(KeyCode.Escape) && GamePlayingState == PlayingState.Gaming)
+        {
+            if (!Instance.isPaused)
+                Instance.OnGamePause();
+            else
+                Instance.OnGameResume();
+        }
+        if (Input.GetButtonDown("Start Button") && GamePlayingState == PlayingState.Gaming)
         {
             if (!Instance.isPaused)
                 Instance.OnGamePause();

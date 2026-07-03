@@ -223,7 +223,7 @@ public class DailyMissionController : MissionController
     public override void Update()
     {
         base.Update();
-        if (GameSceneController.Instance.can_buy_ammo && Input.GetKeyDown(KeyCode.R))
+        if (GameSceneController.Instance.can_buy_ammo && Input.GetButton("Square Button"))
         {
             GameSceneController.Instance.OnAddBulletButton();
         }

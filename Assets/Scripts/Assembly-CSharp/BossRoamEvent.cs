@@ -43,7 +43,7 @@ public class BossRoamEvent : MonoBehaviour, IRoamEvent
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("X Button"))
         {
             if (skipBossCutscene != null)
                 skipBossCutscene();

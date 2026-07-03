@@ -92,7 +92,7 @@ public class player : MonoBehaviour
 				base.GetComponent<Animation>().CrossFade(animations_Attack[i].name);
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.Mouse0))
+		if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetButtonDown("R Button"))
 		{
 			index = 0;
 			base.GetComponent<Animation>().Stop(animations_Attack[0].name);
